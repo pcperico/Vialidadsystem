@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoShopSystemManagement.Data.Dtos;
 using AutoShopSystemManagement.Data.Entities;
 using AutoShopSystemManagement.Data.Repositories.Interfaces;
 
@@ -33,6 +34,17 @@ namespace VialidadSystem.Controllers
         public ActionResult ListarConceptos()
         {
             var model = _tipoDeInfraccionRepository.GetAll();
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult CrearInfraccion()
+        {
+            var model = new CreateInfractionModel
+            {
+                Infraccion = new Infraccion(),
+                InfraccionTypes = _tipoDeInfraccionRepository.GetAll().ToList()
+            };
             return View(model);
         }
     }

@@ -226,6 +226,7 @@
     <Content Include="Views\Shared\_LayoutSystem.cshtml" />
     <Content Include="Views\Infraccions\AgregarTipoInfraccion.cshtml" />
     <Content Include="Views\Infraccions\ListarConceptos.cshtml" />
+    <Content Include="Views\Infraccions\CrearInfraccion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
