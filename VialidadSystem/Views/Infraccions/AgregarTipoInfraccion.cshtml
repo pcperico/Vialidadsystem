@@ -1,0 +1,39 @@
+﻿@model AutoShopSystemManagement.Data.Entities.TipoDeInfraccion
+
+@{
+    ViewBag.Title = "AgregarTipoInfraccion";
+    Layout = "~/Views/Shared/_LayoutSystem.cshtml";
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<h2>AgregarTipoInfraccion</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TipoDeInfraccionName, new { PlaceHolder = "Nombre del concepto", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TipoDeInfraccionName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Multiplicador, new { PlaceHolder = "Multiplicador", @class = "form-control",Value="" })
+                @Html.ValidationMessageFor(model => model.Multiplicador, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group  col-lg-2 col-md-2 col-xs-12">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+

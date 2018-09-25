@@ -4,5 +4,6 @@ namespace AutoShopSystemManagement.Data.Repositories.Interfaces
 {
     public interface ITipoDeInfraccionRepository:IRepository<TipoDeInfraccion>
     {
+        TipoDeInfraccion AddNewInfractionType(TipoDeInfraccion infractionType);
     }
 }
