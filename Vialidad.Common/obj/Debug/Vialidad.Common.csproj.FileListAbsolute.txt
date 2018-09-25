@@ -1,0 +1,8 @@
+D:\Projects\VialidadSystem\Vialidad.Common\obj\Debug\Vialidad.Common.csprojResolveAssemblyReference.cache
+D:\Projects\VialidadSystem\Vialidad.Common\obj\Debug\Vialidad.Common.Properties.Resources.resources
+D:\Projects\VialidadSystem\Vialidad.Common\obj\Debug\Vialidad.Common.csproj.GenerateResource.Cache
+D:\Projects\VialidadSystem\Vialidad.Common\bin\Debug\Vialidad.Common.dll.config
+D:\Projects\VialidadSystem\Vialidad.Common\bin\Debug\Vialidad.Common.dll
+D:\Projects\VialidadSystem\Vialidad.Common\bin\Debug\Vialidad.Common.pdb
+D:\Projects\VialidadSystem\Vialidad.Common\obj\Debug\Vialidad.Common.dll
+D:\Projects\VialidadSystem\Vialidad.Common\obj\Debug\Vialidad.Common.pdb
