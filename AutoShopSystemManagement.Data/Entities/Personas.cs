@@ -16,6 +16,7 @@ namespace AutoShopSystemManagement.Data.Entities
         public DateTime DateUpdated { get; set; }
         public string LicenseNumber { get; set; }
         public string LicenseType { get; set; }
+        public int EstadoLicense { get; set; }
         public byte[] PersonaPhoto { get; set; }
     }
 }

@@ -31,13 +31,7 @@
                 </div>
                 <div class="form-group col-lg-4 col-md-6 col-xs-12">
                     <label>Estado</label>
-                    <select class="form-control">
-                        <option value="0">--Seleccione--</option>
-                        @foreach (var e in Model.Estados)
-                        {
-                            <option value="@e.Id">@e.EstadoName</option>
-                        }
-                    </select>
+                    @Html.DropDownListFor(m => m.Infraccion.Persona.EstadoLicense, new SelectList(Model.Estados, "Id", "EstadoName"),new{ @class = "form-control" })
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-xs-12">
                     <label>Uso</label>
@@ -56,13 +50,7 @@
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-xs-12">
                     <label>Marca del Vehiculo</label>
-                    <select class="form-control">
-                        <option value="0">--Seleccione--</option>
-                        @foreach (var e in Model.VehicleBrands)
-                        {
-                            <option value="@e.Id">@e.VehicleBrandName</option>
-                        }
-                    </select>
+                    @Html.DropDownListFor(m => m.Infraccion.VehicleBrand, new SelectList(Model.VehicleBrands, "Id", "VehicleBrandName"),new{ @class = "form-control" })
                 </div>
                 <div class="form-group col-lg-6 col-md-6 col-xs-12">
                     <label>Modelo</label>
@@ -96,13 +84,7 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-xs-12 form-group">
                     <label>Estado de Licencia</label>
-                    <select class="form-control">
-                        <option value="0">--Seleccione--</option>
-                        @foreach (var e in Model.Estados)
-                        {
-                            <option value="@e.Id">@e.EstadoName</option>
-                        }
-                    </select>
+                    @Html.DropDownListFor(m => m.Infraccion.EstadoId, new SelectList(Model.Estados, "Id", "EstadoName"), new { @class = "form-control" })
                 </div>
                 <div class="col-lg-3 col-md-3 col-xs-12 form-group">
                     <label>Tipo de Licencia</label>
@@ -149,19 +131,21 @@
                     <label>Hora</label>
                     <input class="form-control text-capitalize" type="text" />
                 </div>
+                <div class="clearfix"></div>
                 <div class="text-center">
                     <h5>INFRACIONES</h5>
                 </div>
                 @foreach (var t in Model.InfraccionTypes)
                 {
                     <div class="col-lg-4 col-md-4 col-xs-6 form-group">
-                        <input class="checkbox-inline" type="checkbox" value="@t.Id" /> @t.TipoDeInfraccionName
+                        <input class="checkbox-inline" type="checkbox" value="@t.Id" name="InfractionTypesSelected" /> @t.TipoDeInfraccionName
                     </div>
                 }
                 <div class="col-lg-12 col-md-12 col-xs-12 form-group">
                     <label>Otro Concepto</label>
                     @Html.TextBoxFor(x => x.Infraccion.OtherConcept, new { @class = "form-control text-capitalize" })
-                    @Html.ValidationMessageFor(x => x.Infraccion.OtherConcept, "", new { @class = "text-danger" })                </div>
+                    @Html.ValidationMessageFor(x => x.Infraccion.OtherConcept, "", new { @class = "text-danger" })                
+                </div>
                 <div class="col-lg-12 col-md-12 col-xs-12 form-group">
                     <label>Foto de Prueba</label>
                     <input class="form-control" type="file" id="file1" multiple />
@@ -174,11 +158,6 @@
     </div>
 </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

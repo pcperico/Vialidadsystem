@@ -8,10 +8,10 @@ namespace AutoShopSystemManagement.Data.Entities
         public int InfraccionId { get; set; }
         public int TipoDeInfraccionId { get; set; }
 
-        [ForeignKey("InfraccionId")]
-        public Infraccion Infraccion { get; set; }
-        [ForeignKey("TipoDeInfraccionId")]
-        public TipoDeInfraccion TipoDeInfraccion { get; set; }
+        //[ForeignKey("InfraccionId")]
+        //public virtual Infraccion Infraccion { get; set; }
+        //[ForeignKey("TipoDeInfraccionId")]
+        //public virtual TipoDeInfraccion TipoDeInfraccion { get; set; }
 
     }
 }

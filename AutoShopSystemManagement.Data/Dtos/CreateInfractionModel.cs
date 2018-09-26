@@ -10,5 +10,6 @@ namespace AutoShopSystemManagement.Data.Dtos
         public List<Estados> Estados { get; set; }
         public List<Usos> Usos { get; set; }
         public List<VehicleBrands> VehicleBrands { get; set; }
+        public List<int> InfractionTypesSelected { get; set; }
     }
 }
