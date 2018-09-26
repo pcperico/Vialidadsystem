@@ -1,5 +1,5 @@
-﻿using System.Web.Mvc;
-using StructureMap;
+﻿using StructureMap;
+using System.Web.Mvc;
 using VialidadSystem.DependencyResolution;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(VialidadSystem.WebApplication.App_Start.StructuremapMvc), "Start")]

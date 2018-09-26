@@ -11,6 +11,10 @@ namespace AutoShopSystemManagement.Data
         }
 
         public DbSet<TipoDeInfraccion> Roles { get; set; }
+        public DbSet<Estados> Estados { get; set; }
+        public DbSet<Usos> Usos { get; set; }
+        public DbSet<VehicleBrands> VehicleBrands { get; set; }
+        public DbSet<Personas> Personas { get; set; }
         
     }
 }

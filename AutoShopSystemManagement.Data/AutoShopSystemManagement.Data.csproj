@@ -119,14 +119,24 @@
     <Compile Include="DBContextAutoShop.cs" />
     <Compile Include="Dtos\CreateInfractionModel.cs" />
     <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Entities\Estados.cs" />
     <Compile Include="Entities\Infraccion.cs" />
     <Compile Include="Entities\InfraccionDetalle.cs" />
+    <Compile Include="Entities\Personas.cs" />
     <Compile Include="Entities\TipoDeInfraccion.cs" />
+    <Compile Include="Entities\Usos.cs" />
+    <Compile Include="Entities\VehicleBrands.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Impl\EstadosRepository.cs" />
     <Compile Include="Repositories\Impl\Repository.cs" />
     <Compile Include="Repositories\Impl\TipoDeInfraccionRepository.cs" />
+    <Compile Include="Repositories\Impl\UsosRepository.cs" />
+    <Compile Include="Repositories\Impl\VehicleBrandsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEstadosRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepository.cs" />
     <Compile Include="Repositories\Interfaces\ITipoDeInfraccionRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUsosRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IVehicleBrandsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
