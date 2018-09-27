@@ -18,5 +18,10 @@ namespace AutoShopSystemManagement.Data.Entities
         public string LicenseType { get; set; }
         public int EstadoLicense { get; set; }
         public byte[] PersonaPhoto { get; set; }
+
+        public override string ToString()
+        {
+            return FirstName + " " + MiddleName + " " + LastName1 + " " + LastName2;
+        }
     }
 }

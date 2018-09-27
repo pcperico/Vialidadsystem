@@ -11,14 +11,16 @@ namespace VialidadSystem.Controllers
 {
     public class InfraccionsController : Controller
     {
+        private readonly IInfraccionRepository _infraccionRepository;
         private readonly ITipoDeInfraccionRepository _tipoDeInfraccionRepository;
         private readonly IEstadosRepository _estadosRepository;
         private readonly IUsosRepository _usosRepository;
         private readonly IVehicleBrandsRepository _vehicleBrandsRepository;
         private readonly IInfractionService _infractionService;
 
-        public InfraccionsController(ITipoDeInfraccionRepository tipoDeInfraccionRepository,IEstadosRepository estadosRepository,IUsosRepository usosRepository,IVehicleBrandsRepository vehicleBrandsRepository,IInfractionService infractionService)
+        public InfraccionsController(IInfraccionRepository infraccionRepository, ITipoDeInfraccionRepository tipoDeInfraccionRepository,IEstadosRepository estadosRepository,IUsosRepository usosRepository,IVehicleBrandsRepository vehicleBrandsRepository,IInfractionService infractionService)
         {
+            _infraccionRepository = infraccionRepository;
             _tipoDeInfraccionRepository = tipoDeInfraccionRepository;
             _estadosRepository = estadosRepository;
             _usosRepository = usosRepository;
@@ -65,8 +67,32 @@ namespace VialidadSystem.Controllers
         [HttpPost]
         public ActionResult CrearInfraccion(CreateInfractionModel model, IEnumerable<HttpPostedFileBase> images)
         {
-            _infractionService.CreateNewInfraction(model,images);
-            return View();
+            var infraccion=_infractionService.CreateNewInfraction(model,images);
+            var viewModel = new InfraccionDetailDto
+            {
+                Infraccion = infraccion,
+                Infracciones = GetInfraccionNames(infraccion)
+            };
+            return View("InfraccionConfirmacion", viewModel);
+        }
+
+        public ActionResult InfraccionDetalle(int id)
+        {
+            var infraccion = _infraccionRepository.Get(id);
+            var viewModel = new InfraccionDetailDto
+            {
+                Infraccion = infraccion,
+                Infracciones = GetInfraccionNames(infraccion)
+            };
+            return View("InfraccionConfirmacion", viewModel);
+        }
+
+        private List<string> GetInfraccionNames(Infraccion infraccion)
+        {
+            if (infraccion?.Detalles == null) return null;
+
+            return infraccion.Detalles.Select(i => _tipoDeInfraccionRepository.Get(i.TipoDeInfraccionId).TipoDeInfraccionName).ToList();
+
         }
     }
 }

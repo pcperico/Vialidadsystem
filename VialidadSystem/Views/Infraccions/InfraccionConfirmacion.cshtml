@@ -1,0 +1,101 @@
+﻿@model AutoShopSystemManagement.Data.Dtos.InfraccionDetailDto
+
+@{
+    ViewBag.Title = "InfraccionConfirmacion";
+    Layout = "~/Views/Shared/_LayoutSystem.cshtml";
+}
+
+<h2>Infraccion Confirmada</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Nombre: </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Infraccion.Persona.FirstName)
+        </dd>
+
+        <dt>
+            <label>Marca del vehículo: </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Infraccion.VehicleBrand)
+        </dd>
+
+        <dt>
+            <label>No. de Placa:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Infraccion.Placa)
+        </dd>
+
+        <dt>
+            <label>Color de Vehículo:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Infraccion.VehicleColor)
+        </dd>
+
+        <dt>
+            <label>Año de Vehículo:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Infraccion.VehicleYear)
+        </dd>
+
+        <dt>
+            <label>Modelo de Vehículo:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Infraccion.VehicleModel)
+        </dd>
+
+        <dt>
+            <label>Lugar de la infracción:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Infraccion.Ubicacion)
+        </dd>
+
+        <dt>
+            <label>Fecha de la infracción:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Infraccion.DateCreated)
+        </dd>
+        <dt>
+            <label>Infracciones cometidas:</label>
+        </dt>
+        <dd>
+            <ul>
+                @foreach (var i in Model.Infracciones)
+                {
+                    <li>
+                        @i
+                    </li>
+                }
+            </ul>
+        </dd>
+        
+        
+
+        <dt>
+            <label>Otro concepto:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Infraccion.OtherConcept)
+        </dd>
+
+    </dl>
+</div>
