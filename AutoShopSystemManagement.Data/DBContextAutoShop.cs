@@ -17,6 +17,7 @@ namespace AutoShopSystemManagement.Data
         public DbSet<Personas> Personas { get; set; }
         public DbSet<Infraccion> Infraccions { get; set; }
         public DbSet<InfraccionDetalle> InfraccionDetails { get; set; }
+        public DbSet<InfraccionImages> InfraccionImages{ get; set; }
         
     }
 }

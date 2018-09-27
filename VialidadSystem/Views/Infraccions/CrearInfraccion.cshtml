@@ -8,7 +8,7 @@
 <h2>Crear Infraccion</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("CrearInfraccion","Infraccions",FormMethod.Post, new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
     
@@ -148,7 +148,9 @@
                 </div>
                 <div class="col-lg-12 col-md-12 col-xs-12 form-group">
                     <label>Foto de Prueba</label>
-                    <input class="form-control" type="file" id="file1" multiple />
+                    @*<input class="form-control" type="file" id="file1" name="file1" multiple />*@
+                    <input class="form-control" type="file" multiple="multiple" id="file1" name="images" />
+
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-lg btn-primary btn-block" value="Someter Infracción">

@@ -3,19 +3,24 @@ using AutoShopSystemManagement.Data.Entities;
 using AutoShopSystemManagement.Data.Repositories.Interfaces;
 using AutoShopSystemManagement.Data.Services.Interfaces;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Web;
 
 namespace AutoShopSystemManagement.Data.Services.Impl
 {
     public class InfractionService:IInfractionService
     {
         private readonly ITipoDeInfraccionRepository _tipoDeInfraccionRepository;
+        private readonly IInfraccionImagesRepository _imagesRepository;
 
-        public InfractionService(ITipoDeInfraccionRepository tipoDeInfraccionRepository)
+        public InfractionService(ITipoDeInfraccionRepository tipoDeInfraccionRepository,IInfraccionImagesRepository imagesRepository)
         {
             _tipoDeInfraccionRepository = tipoDeInfraccionRepository;
+            _imagesRepository = imagesRepository;
         }
 
-        public Infraccion CreateNewInfraction(CreateInfractionModel model)
+        public Infraccion CreateNewInfraction(CreateInfractionModel model, IEnumerable<HttpPostedFileBase> images)
         {
             using (var context = new DbContextAutoShop())
             {
@@ -39,6 +44,7 @@ namespace AutoShopSystemManagement.Data.Services.Impl
                         }
                         context.SaveChanges();
                         dbContextTransaction.Commit();
+                        AddPictureToCar(infraccion.Id, images);
                         return infraccion;
 
                     }
@@ -49,6 +55,23 @@ namespace AutoShopSystemManagement.Data.Services.Impl
                     }
                 }
             }
+        }
+
+        public bool AddPictureToCar(int infraccionId,IEnumerable<HttpPostedFileBase> infractionImages)
+        {
+            if (infractionImages == null)
+                return false;
+            foreach (var cp in infractionImages)
+            {
+                var photo = new InfraccionImages {InfraccionId = infraccionId };
+                using (var ms = new MemoryStream())
+                {
+                    cp.InputStream.CopyTo(ms);
+                    photo.Image = ms.GetBuffer();
+                }
+                _imagesRepository.Save(photo);
+            }
+            return true;
         }
     }
 }

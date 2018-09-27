@@ -1,7 +1,9 @@
-﻿using AutoShopSystemManagement.Data.Dtos;
+﻿using System.Collections.Generic;
+using AutoShopSystemManagement.Data.Dtos;
 using AutoShopSystemManagement.Data.Entities;
 using AutoShopSystemManagement.Data.Repositories.Interfaces;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using AutoShopSystemManagement.Data.Services.Interfaces;
 
@@ -61,9 +63,9 @@ namespace VialidadSystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult CrearInfraccion(CreateInfractionModel model)
+        public ActionResult CrearInfraccion(CreateInfractionModel model, IEnumerable<HttpPostedFileBase> images)
         {
-            _infractionService.CreateNewInfraction(model);
+            _infractionService.CreateNewInfraction(model,images);
             return View();
         }
     }
